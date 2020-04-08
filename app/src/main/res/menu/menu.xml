@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/itFormularioPago"
+        android:title="@string/FormularioDePago"
+        />
+
+    <item
+        android:id="@+id/itListaPagos"
+        android:title="@string/pagos"
+        />
+
+    <item
+        android:id="@+id/itCerrarSesion"
+        android:title="@string/cerrar"
+        />
+    <item
+        android:id="@+id/itSalir"
+        android:title="@string/salir"
+        />
+
+
+</menu>

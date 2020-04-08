@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Pagos y movimientos</string>
+    <string name="Codigo">Codigo</string>
+    <string name="Descripcion">Descripcion</string>
+    <string name="monto">Monto</string>
+    <string name="movimientos">Listado de movimientos</string>
+    <string name="Tipo">Tipo</string>
+    <string name="Guardar">Guardar</string>
+    <string name="Usuario">Usuario</string>
+    <string name="Nombre">Nombre</string>
+    <string name="Apellido">Apellido</string>
+    <string name="Cedula">Cedula</string>
+    <string name="Correo">Correo</string>
+    <string name="Clave">Clave</string>
+    <string name="Entrar">Entrar</string>
+    <string name="Crearme">Crearme una cuenta</string>
+    <string name="pagos">Pagos</string>
+    <string name="crearUsuario">Crear Usuario</string>
+    <string name="confirmar">Repita su clave</string>
+
+
+    <string name="FormularioDePago">Formulario de pago</string>
+    <string name="cerrar">Cerrar Sesion</string>
+    <string name="salir">Salir</string>
+
+</resources>
