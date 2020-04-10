@@ -17,6 +17,9 @@
     <string name="pagos">Pagos</string>
     <string name="crearUsuario">Crear Usuario</string>
     <string name="confirmar">Repita su clave</string>
+    <string name="Editar">Editar</string>
+    <string name="Eliminar">Eliminar</string>
+    <string name="seleccioneTipo">Seleccione Tipo</string>
 
 
     <string name="FormularioDePago">Formulario de pago</string>

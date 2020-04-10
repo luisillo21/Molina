@@ -19,13 +19,14 @@ import com.example.pagoa.CrudPagos.CrudPago;
 import com.example.pagoa.model.Pago;
 import com.example.pagoa.model.Usuario;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MovimientosActivity extends AppCompatActivity {
     ListView listPagos;
     MovimientoAdapter adapter;
     List<Pago> lstPagos;
-    CrudPago crud;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,11 +35,10 @@ public class MovimientosActivity extends AppCompatActivity {
         SharedPreferences preferences;
         preferences = getSharedPreferences("usuario", Context.MODE_PRIVATE);
         int id = preferences.getInt("idusuario",0);
+        lstPagos = new ArrayList<Pago>();
         System.out.println("ID RECIBIDO:"+ id);
+        CrudPago crud = new CrudPago(MovimientosActivity.this);
         lstPagos = crud.listar_todo(id);
-        for(int i = 0;i<lstPagos.size();i++){
-            System.out.println("Nombre: "+lstPagos.get(i).getDescripcion());
-        }
         adapter = new MovimientoAdapter(MovimientosActivity.this,lstPagos);
         listPagos.setAdapter(adapter);
         listPagos.setOnItemClickListener(new AdapterView.OnItemClickListener() {

@@ -3,6 +3,7 @@ package com.example.pagoa;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -43,6 +44,7 @@ public class FormularioActivity extends AppCompatActivity {
         formDescripcion = (EditText) findViewById(R.id.formDescripcion);
         formMonto = (EditText) findViewById(R.id.formMonto);
         formTipo = (TextView) findViewById(R.id.formTipo);
+        btnFormPago=(Button)findViewById(R.id.btnFormPago);
         obtenerLista();
         ArrayAdapter<CharSequence> adaptador = new ArrayAdapter(FormularioActivity.this,android.R.layout.simple_spinner_item,lstActividad);
         spTipo.setAdapter(adaptador);
@@ -69,18 +71,24 @@ public class FormularioActivity extends AppCompatActivity {
                 crud = new CrudPago(FormularioActivity.this);
                 if (formCodigo.getText().toString().isEmpty() || formDescripcion.getText().toString().isEmpty()
                 || formMonto.getText().toString().isEmpty() || formTipo.getText().toString().isEmpty() ){
+                    Toast.makeText(FormularioActivity.this,"Ningun campo debe estar incompleto",Toast.LENGTH_SHORT).show();
+                }else{
                     Pago obj = new Pago();
+                    SharedPreferences preferences;
+                    preferences = getSharedPreferences("usuario", Context.MODE_PRIVATE);
+                    int id = preferences.getInt("idusuario",0);
                     obj.setCodigo(formCodigo.getText().toString());
                     obj.setDescripcion(formDescripcion.getText().toString());
                     obj.setMonto(Double.valueOf(formMonto.getText().toString()));
                     obj.setTipo(formTipo.getText().toString());
+                    obj.setIdusuario(id);
+                    CrudPago crud = new CrudPago(FormularioActivity.this);
                     crud.guardar_pago(obj);
+                    Toast.makeText(FormularioActivity.this,"Datod guardados exitosamente",Toast.LENGTH_SHORT).show();
                     formMonto.setText("");
                     formDescripcion.setText("");
                     formTipo.setText("");
                     formCodigo.setText("");
-                }else{
-                    Toast.makeText(FormularioActivity.this,"Ningun campo debe estar incompleto",Toast.LENGTH_SHORT).show();
                 }
             }
         });
